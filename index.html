@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="template-container">
+      <template id="template-youtube-frame">
+        <div id="{{ videoId }}-player" />
+      </template>
+    </div>
+    <div id="app">
+      <div v-if="isInitDone">
+        <input type="text" v-model="query" />
+        <button v-on:click="search()">Search</button>
+      </div>
+      <div v-for="videoId in videos">
+        <youtube-frame :video-id="videoId" height="195" width="320" />
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
+    <script src="token.js"></script>
+    <script src="components/app.js"></script>
+    <script src="components/youtubeframe.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=onClientLoad"></script>
+  </body>
+</html>
